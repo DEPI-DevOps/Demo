@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            steps {
+                nodejs('node-22') {
+                    sh '''
+                    npm ci
+                    npm test
+                    '''
+                }
+            }
+        }
+    }    
+}
