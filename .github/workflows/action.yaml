@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies and run tests
-        run: npm ci && npm run test
+        run: cd app_nodejs && npm ci && npm run test
