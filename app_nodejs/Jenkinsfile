@@ -6,6 +6,7 @@ pipeline {
             steps {
                 nodejs('node-22') {
                     sh '''
+                    cd app_nodejs
                     npm ci
                     npm test
                     '''
