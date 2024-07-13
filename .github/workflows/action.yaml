@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    stages:
+    steps:
       - uses: actions/checkout@v4
       - name: Setup node 22
         uses: actions/setup-node@v4
@@ -17,7 +17,3 @@ jobs:
           node-version: '22'
       - name: Install dependencies and run tests
         run: npm ci && npm run test
-          
-  # build:
-  
-  
