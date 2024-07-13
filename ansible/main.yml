@@ -1,0 +1,20 @@
+---
+- name: Install docker on the machine
+  hosts: app
+  become: true
+  roles:
+    - docker
+  tasks:
+    - name: Pull the latest image
+      docker_image:
+        name: sh3b0/demo
+        tag: latest
+        source: pull
+
+    - name: Deploy the app container
+      docker_container:
+        name: app
+        image: sh3b0/demo
+        state: started
+        ports:
+          - "80:3000"
