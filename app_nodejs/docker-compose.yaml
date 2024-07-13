@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    container_name: app
+    restart: unless-stopped
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/master
+
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+volumes:
+  mongo-data:

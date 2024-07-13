@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "app_nodejs/**"
+      - ".github/workflows/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    stages:
+      - uses: actions/checkout@v4
+      - name: Setup node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies and run tests
+        run: npm ci && npm run test
+          
+  # build:
+  
+  
