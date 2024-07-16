@@ -62,7 +62,7 @@ docker compose build --no-cache && docker compose up -d
 - From Config Menu -> Tools -> Create NodeJS Installation named `node-22`
 - Create a Pipeline for `app_nodejs` and a `Jenkinsfile` in the `app_nodejs` folder
 - Connect the pipeline with GitHub Repository using the credentials plugin.
-  - For automatic builds, setup SCM polling or Git hooks (available only when).
+  - For automatic builds, setup SCM polling or Git hooks (available only when Jenkins server is public).
 - Choose pipeline from SCM and configure the location of `Jenkinsfile`
 - Trigger the build and monitor status (you may also install OpenSea plugin for a nicer UI).
 
