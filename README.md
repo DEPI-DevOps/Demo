@@ -1,7 +1,5 @@
 # Demo
 
-![example workflow](https://github.com/DEPI-DevOps/demo/actions/workflows/action.yml/badge.svg)
-
 Demo with NodeJS, Docker, Docker Compose, GitHub Actions, Jenkins, Ansible, Terraform, and AWS.
 
 ## Initialization
