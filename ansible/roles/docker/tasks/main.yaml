@@ -1,31 +1,11 @@
 ---
-- name: Install prerequisites
+- name: Install Docker packages
   ansible.builtin.apt:
     name:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg-agent
-      - software-properties-common
+      - docker.io
     update_cache: true
 
-- name: Add apt-key
-  ansible.builtin.apt_key:
-    url: https://download.docker.com/linux/debian/gpg
-
-- name: Add docker repo
-  ansible.builtin.apt_repository:
-    repo: deb https://download.docker.com/linux/debian bookworm stable
-
-- name: Install docker
-  ansible.builtin.apt:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-    update_cache: true
-
-- name: Add user permissions
+- name: Add user to the docker group
   ansible.builtin.user:
     name: "{{ ansible_env.SUDO_USER }}"
     append: true
